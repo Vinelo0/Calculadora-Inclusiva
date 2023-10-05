@@ -1,2 +1,3 @@
 # Calculadora-Inclusiva
-Desenvolvimento de uma calculado com acessibilidade para deficientes visuais
+Desenvolvimento de uma calculadora com acessibilidade para deficientes visuais
+
