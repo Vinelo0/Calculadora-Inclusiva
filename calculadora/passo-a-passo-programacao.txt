@@ -1,0 +1,25 @@
+- Verificação da expressão
+
+1- se existir virgula:
+variável int = números antes da ','
+variável float - variável int = números depois da ','
+verificar quantos números existem antes da ',' e direcionar para a estrutura de verificação de casas
+string : "variavel int ',' float-int"
+
+2-se não existir virgula :
+verificar quantos números existem 
+
+3-verificar transformando-a em audio.
+
+23 456 789
+centena de milhão
+100
+ o 2° numero é maior que zero?
+sim: cento
+não: o 3° numero é maior que zero?
+	sim: cento
+	não: cem
+
+cento
+vinte
+três
