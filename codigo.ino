@@ -1,9 +1,11 @@
+#include <DFRobotDFPlayerMini.h>
+#include "SoftwareSerial.h"
 // #include <Adafruit_LiquidCrystal.h>
 #include <tinyexpr.h>
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
-byte rows[] = {8, 9, 10, 11, 12, 13};
+byte rows[] = {4, 9, 3, 10, 2, 11};
 const int rowCount = sizeof(rows) / sizeof(rows[0]);
 char tecla='h';
 double res = 0;
@@ -11,10 +13,12 @@ String str1="";
 char str[100];
 int error=0;
 int count2 = 0;
+SoftwareSerial mySerial(12, 13);
+DFRobotDFPlayerMini dfplayer;
 // Adafruit_LiquidCrystal lcd_1(0);
 
 // JP2 and JP3 are outputs
-byte cols[] = {4, 5, 6, 7};
+byte cols[] = {5, 6, 7, 8};
 const int colCount = sizeof(cols) / sizeof(cols[0]);
 
 byte keys[colCount][rowCount];
@@ -23,7 +27,9 @@ void setup() {
     // lcd_1.begin(16, 2);
     // lcd_1.setBacklight(1);
     // lcd_1.clear();
-    Serial.begin(115200);
+    Serial.begin(9600);
+    mySerial.begin(115200);
+    dfplayer.setVolume(20);
     // lcd_1.setCursor(0, 1);
 
     for (int x = 0; x < rowCount; x++) {
@@ -125,27 +131,41 @@ void operador() {
                   	case 13:
                   		tecla='%';str1+=tecla;break;                  	
                   	case 20:                  	
-                  		tecla = '7';str1+=tecla;break;
+                  		tecla = '7';str1+=tecla;
+                      dfplayer.playMp3Folder("7.mp3");break;
                   	case 21:                  	
-                  		tecla = '8';str1+=tecla;break;
+                  		tecla = '8';str1+=tecla;
+                      dfplayer.playMp3Folder("8.mp3");break;
                   	case 22:
-                  		tecla = '9';str1+=tecla;break;
+                  		tecla = '9';str1+=tecla;
+                      dfplayer.playMp3Folder("9.mp3");break;
                   	case 23:
                   		tecla = '+';str1+=tecla;break;                	
                   	case 30:
-                  		tecla = '4';str1+=tecla;break;
+                  		tecla = '4';str1+=tecla;
+                      dfplayer.playMp3Folder("4.mp3");break;
                   	case 31:
-                  		tecla = '5';str1+=tecla;break;
+                  		tecla = '5';str1+=tecla;
+                      dfplayer.playMp3Folder("5.mp3");break;
                   	case 32:
-                  		tecla = '6';str1+=tecla;break;
+                  		tecla = '6';str1+=tecla;
+                      dfplayer.playMp3Folder("6.mp3");break;
                   	case 33:
                   		tecla = '-';str1+=tecla;break;        	
                   	case 40:
-                  		tecla='1';str1+=tecla;break;
+                  		tecla='1';
+                      str1+=tecla;
+                      dfplayer.playMp3Folder("1.mp3");
+                      break;
                   	case 41:
-                  		tecla='2';str1+=tecla;break;
+                  		tecla='2';
+                      str1+=tecla;
+                      dfplayer.playMp3Folder("2.mp3");
+                      break;
                   	case 42:
-                  		tecla='3';str1+=tecla;break;
+                  		tecla='3';
+                      str1+=tecla;
+                      dfplayer.playMp3Folder("3.mp3");break;
                   	case 43:
                   		tecla='*';str1+=tecla;break;
                   	case 50:
