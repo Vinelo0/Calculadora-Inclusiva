@@ -29,7 +29,8 @@ void setup() {
     // lcd_1.clear();
     Serial.begin(9600);
     mySerial.begin(115200);
-    dfplayer.setVolume(20);
+    dfplayer.volume(20);
+    Serial.print("salve");
     // lcd_1.setCursor(0, 1);
 
     for (int x = 0; x < rowCount; x++) {
@@ -110,64 +111,75 @@ void operador() {
           		count++;
           	}
             if (keys[colIndex][rowIndex] == LOW && tecla=='h') {
-            	int ValorBotao = (linha * 10) + colIndex;
+            	//int ValorBotao = (linha * 10) + colIndex;
                 //Serial.print(ValorBotao);
+                int ValorBotao = 3;
              	
                 switch (ValorBotao) {
                   	case 0:
-                  		tecla='0';str1+=tecla;break;
+                  		tecla='0';str1+=tecla;
+                      dfplayer.play(3);break;
                   	case 1:
-                  		tecla='c';cleear();break;
+                  		tecla='c';cleear();
+                      dfplayer.play(4);break;
                   	case 2:
                   		tecla='r';break;
                   	case 3:
-                  		tecla='sqrt(';str1+=tecla;break;
+                  		tecla='sqrt(';str1+=tecla;
+                      dfplayer.play(9);delay(1000);break;
                   	case 10:
-                  		tecla='(';str1+=tecla;break;
+                  		tecla='(';str1+=tecla;
+                      dfplayer.play(2);break;
                   	case 11:
-                  		tecla=')';str1+=tecla;break;
+                  		tecla=')';str1+=tecla;
+                      dfplayer.play(53);break;
                     case 12:
-                  		tecla='p';break;
+                  		tecla='p';
+                      dfplayer.play(6);break;
                   	case 13:
-                  		tecla='%';str1+=tecla;break;                  	
+                  		tecla='%';str1+=tecla;
+                      dfplayer.play(56);break;                  	
                   	case 20:                  	
                   		tecla = '7';str1+=tecla;
-                      dfplayer.playMp3Folder("7.mp3");break;
+                      dfplayer.play(16);break;
                   	case 21:                  	
                   		tecla = '8';str1+=tecla;
-                      dfplayer.playMp3Folder("8.mp3");break;
+                      dfplayer.play(17);break;
                   	case 22:
                   		tecla = '9';str1+=tecla;
-                      dfplayer.playMp3Folder("9.mp3");break;
+                      dfplayer.play(18);break;
                   	case 23:
-                  		tecla = '+';str1+=tecla;break;                	
+                  		tecla = '+';str1+=tecla;
+                      dfplayer.play(54);break;                	
                   	case 30:
                   		tecla = '4';str1+=tecla;
-                      dfplayer.playMp3Folder("4.mp3");break;
+                      dfplayer.play(13);break;
                   	case 31:
                   		tecla = '5';str1+=tecla;
-                      dfplayer.playMp3Folder("5.mp3");break;
+                      dfplayer.play(14);break;
                   	case 32:
                   		tecla = '6';str1+=tecla;
-                      dfplayer.playMp3Folder("6.mp3");break;
+                      dfplayer.play(15);break;
                   	case 33:
-                  		tecla = '-';str1+=tecla;break;        	
+                  		tecla = '-';str1+=tecla;
+                      dfplayer.play(55);break;        	
                   	case 40:
                   		tecla='1';
                       str1+=tecla;
-                      dfplayer.playMp3Folder("1.mp3");
+                      dfplayer.play(10);
                       break;
                   	case 41:
                   		tecla='2';
                       str1+=tecla;
-                      dfplayer.playMp3Folder("2.mp3");
+                      dfplayer.play(11);
                       break;
                   	case 42:
                   		tecla='3';
                       str1+=tecla;
-                      dfplayer.playMp3Folder("3.mp3");break;
+                      dfplayer.play(12);break;
                   	case 43:
-                  		tecla='*';str1+=tecla;break;
+                  		tecla='*';str1+=tecla;
+                      dfplayer.play(1);break;
                   	case 50:
                   		tecla ='=';
                       res = te_interp(str1.c_str(), &error);
@@ -183,11 +195,14 @@ void operador() {
                       }
                       break;
                   	case 51:
-                  		tecla='0';str1.concat(tecla);break;
+                  		tecla='0';str1.concat(tecla);
+                      dfplayer.play(8);break;
                   	case 52:
-                  		tecla=',';str1.concat(tecla);break;
+                  		tecla=',';str1.concat(tecla);
+                      dfplayer.play(7);break;
                   	case 53:
-                  		tecla='/';str1.concat(tecla);break;
+                  		tecla='/';str1.concat(tecla);
+                      dfplayer.play(5);break;
                 }
               Serial.println(str1);
               
