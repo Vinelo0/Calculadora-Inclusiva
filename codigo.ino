@@ -5,7 +5,7 @@
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
-byte rows[] = {4, 9, 3, 10, 2, 11};
+byte rows[] = {4,9,3,10,2,11};
 const int rowCount = sizeof(rows) / sizeof(rows[0]);
 char tecla='h';
 double res = 0;
@@ -24,6 +24,7 @@ const int colCount = sizeof(cols) / sizeof(cols[0]);
 byte keys[colCount][rowCount];
 
 void setup() {
+  Serial.print("\nTo no operador\n");
     // lcd_1.begin(16, 2);
     // lcd_1.setBacklight(1);
     // lcd_1.clear();
@@ -86,7 +87,7 @@ void printMatrix() {
 
 void loop() {
     readMatrix();
-    //printMatrix();
+    printMatrix();
     operador();
 }
 
@@ -99,7 +100,7 @@ Serial.println("Clear");
 }
 
 void operador() {
-    //Serial.print("\nTo no operador\n");
+    Serial.print("\nTo no operador\n");
     int coluna = -1;
     int linha = -1;
   	int count = 0;  	
@@ -111,9 +112,8 @@ void operador() {
           		count++;
           	}
             if (keys[colIndex][rowIndex] == LOW && tecla=='h') {
-            	//int ValorBotao = (linha * 10) + colIndex;
-                //Serial.print(ValorBotao);
-                int ValorBotao = 3;
+            	int ValorBotao = (linha * 10) + colIndex;
+                Serial.print(ValorBotao);
              	
                 switch (ValorBotao) {
                   	case 0:
